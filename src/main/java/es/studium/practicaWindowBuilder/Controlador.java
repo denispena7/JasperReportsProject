@@ -25,6 +25,7 @@ public class Controlador implements ActionListener, ItemListener
 	DialogoArticuloActConfirmada dlgActualizaciónCorrecta= new DialogoArticuloActConfirmada();
 	DialogoArticuloBajaConfirmacion dlgBajaCorrecta = new DialogoArticuloBajaConfirmacion();
 	DialogoPreguntaBajaArticulos dlgPreguntaBaja = new DialogoPreguntaBajaArticulos();
+	RangoFechasInformeTickets dlgFechas = new RangoFechasInformeTickets();
 
 	public Controlador(Modelo m, MenuPrincipal menuP)
 	{
@@ -40,6 +41,7 @@ public class Controlador implements ActionListener, ItemListener
 		articulos.btnActualizar.addActionListener(this);
 		articulos.btnSeleccionar.addActionListener(this);
 		articulos.btnEliminar.addActionListener(this);
+		articulos.btnInforme.addActionListener(this);
 
 		// Botones de elección de baja
 		dlgPreguntaBaja.btnSi.addActionListener(this);
@@ -48,6 +50,10 @@ public class Controlador implements ActionListener, ItemListener
 		// Botones del menu del crud de tickets
 		menuCrudT.btnAltaTicket.addActionListener(this);
 		menuCrudT.btnElegirTicket.addActionListener(this);
+		menuCrudT.btnInfomeTickets.addActionListener(this);
+		
+		// Botón para generar informe con las fechas
+		dlgFechas.btnGenerarInforme.addActionListener(this);
 
 		// Botones de confirmacion para el alta de los tickets
 		dlgAltaTicket.btnSiguiente.addActionListener(this);
@@ -113,6 +119,36 @@ public class Controlador implements ActionListener, ItemListener
 			else
 			{
 				JOptionPane.showMessageDialog(null, "Selecciona un ticket válido", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		// Botón que genera dirige al dialogo de rango de fechas para informe
+		else if(e.getSource().equals(menuCrudT.btnInfomeTickets))
+		{
+			dlgFechas.setVisible(true);
+		}
+		// Botón que genera el informe
+		else if(e.getSource().equals(dlgFechas.btnGenerarInforme))
+		{
+			String fechaDesde = dlgFechas.txtFechaDesde.getText();
+			String fechaHasta = dlgFechas.txtFechaHasta.getText();
+			
+			if(fechaDesde.equals("") || fechaHasta.equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "Rellena los campos de fecha", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			else
+			{
+				if(modelo.validarFecha(fechaDesde) && modelo.validarFecha(fechaHasta))
+				{
+					new InformeTicketsJasperSoft(modelo.formatoMySQL(fechaDesde), 
+							modelo.formatoMySQL(fechaHasta));
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Fecha Incorrecta", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		}
 		// Botón que REALIZA EL ALTA DEL TICKET y muestra la venta para sumar artículos al ticket
@@ -216,11 +252,13 @@ public class Controlador implements ActionListener, ItemListener
 				if(articulos.txtDescripcion.getText().equals("") || articulos.txtPrecio.getText().equals("")
 						|| articulos.txtStock.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artículo.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artículo.", "Error", 
+							JOptionPane.ERROR_MESSAGE);
 				}
 				else
 				{
-					int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(), 0) + "".trim());
+					int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(),
+							0) + "".trim());
 					float precio = Float.parseFloat(articulos.txtPrecio.getText().split(" ")[0]);
 					int stock = Integer.parseInt(articulos.txtStock.getText());
 
@@ -250,7 +288,8 @@ public class Controlador implements ActionListener, ItemListener
 				if(articulos.txtDescripcion.getText().equals("") && articulos.txtPrecio.getText().equals("")
 						&& articulos.txtStock.getText().equals(""))
 				{
-					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artículo.", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artículo.", 
+							"Error", JOptionPane.ERROR_MESSAGE);
 				}
 				else
 				{
@@ -262,10 +301,17 @@ public class Controlador implements ActionListener, ItemListener
 				JOptionPane.showMessageDialog(null, "El id especificado no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
+		// Botón para generar un informe con JasperReports
+		else if(e.getSource().equals(articulos.btnInforme))
+		{
+			// código que genera el informe
+			new InformeArticulosJasperSoft();
+		}
 		// Botón que ELIMINA UN TICKET
 		else if(e.getSource().equals(dlgPreguntaBaja.btnSi))
 		{
-			int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(), 0) + "".trim());
+			int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(),
+					0) + "".trim());
 
 			modelo.conectar();
 			modelo.bajaArticulo(id);
@@ -294,7 +340,8 @@ public class Controlador implements ActionListener, ItemListener
 			{
 				String articulo = tickets.comboBox.getSelectedItem().toString();
 
-				if(tickets.comboBox.getSelectedIndex() == 0 || tickets.txtPrecio.getText().equals("") || tickets.txtCantidad.getText().equals(""))
+				if(tickets.comboBox.getSelectedIndex() == 0 || tickets.txtPrecio.getText().equals("") 
+						|| tickets.txtCantidad.getText().equals(""))
 				{
 					JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
 				}

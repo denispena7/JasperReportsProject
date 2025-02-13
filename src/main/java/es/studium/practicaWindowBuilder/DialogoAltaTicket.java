@@ -1,7 +1,6 @@
 package es.studium.practicaWindowBuilder;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -9,28 +8,30 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 
-public class DialogoAltaTicket extends JDialog {
-
+public class DialogoAltaTicket extends JDialog 
+{
 	private static final long serialVersionUID = 1L;
+	
+	JPanel pnlPrincipal;
+	JLabel lblMensaje;
+	
 	JButton btnSiguiente;
 	JButton btnVolver;
 
-	/**
-	 * Create the dialog.
-	 */
-	public DialogoAltaTicket() {
+	public DialogoAltaTicket()
+	{
 		setTitle("ALTA TICKET");
 		setBounds(100, 100, 404, 210);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
 		{
-			JPanel pnlPrincipal = new JPanel();
+			pnlPrincipal = new JPanel();
 			pnlPrincipal.setBackground(new Color(241, 237, 220));
 			getContentPane().add(pnlPrincipal, BorderLayout.CENTER);
 			pnlPrincipal.setLayout(null);
 			{
-				JLabel lblMensaje = new JLabel("VAS A CREAR UN NUEVO TICKET");
+				lblMensaje = new JLabel("VAS A CREAR UN NUEVO TICKET");
 				lblMensaje.setForeground(new Color(0, 64, 128));
 				lblMensaje.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 				lblMensaje.setBounds(60, 38, 276, 35);
@@ -53,7 +54,5 @@ public class DialogoAltaTicket extends JDialog {
 				pnlPrincipal.add(btnVolver);
 			}
 		}
-		
-//		setVisible(true);
 	}
 }

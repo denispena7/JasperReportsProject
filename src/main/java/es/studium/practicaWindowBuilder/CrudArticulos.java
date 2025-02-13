@@ -21,29 +21,36 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
-public class CrudArticulos extends JFrame {
-
+public class CrudArticulos extends JFrame 
+{
 	private static final long serialVersionUID = 1L;
 	JPanel contentPane;
+	JPanel pnlFormulario;
 	JTextField txtDescripcion;
 	JTextField txtPrecio;
 	JTextField txtStock;
 	JTable tblConsultaArticulos;
 	
+	JLabel lblDescripcion;
+	JLabel lblPrecio;
+	JLabel lblStock;
+	
+	JPanel panel;
+	JScrollPane scrollPane;
+	
 	JButton btnAgregar;
 	JButton btnActualizar;
 	JButton btnSeleccionar;
 	JButton btnEliminar;
+	JButton btnInforme;
 	
 	Modelo datos = new Modelo();
 	
-	/**
-	 * Create the frame.
-	 */
-	public CrudArticulos() {
+	public CrudArticulos() 
+	{
 		setTitle("CRUD ARTÍCULOS");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 449, 585);
+		setBounds(100, 100, 449, 640);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(241, 237, 220));
@@ -52,26 +59,28 @@ public class CrudArticulos extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel pnlFormulario = new JPanel();
+		pnlFormulario = new JPanel();
 		pnlFormulario.setBackground(new Color(241, 237, 220));
-		pnlFormulario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
+		pnlFormulario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+				new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS", TitledBorder.LEADING, 
+				TitledBorder.TOP, null, new Color(0, 64, 128)));
 		pnlFormulario.setBounds(20, 11, 392, 253);
 		contentPane.add(pnlFormulario);
 		pnlFormulario.setLayout(null);
 		
-		JLabel lblDescripcion = new JLabel("DESCRIPCIÓN");
+		lblDescripcion = new JLabel("DESCRIPCIÓN");
 		lblDescripcion.setForeground(new Color(0, 64, 128));
 		lblDescripcion.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblDescripcion.setBounds(23, 36, 124, 28);
 		pnlFormulario.add(lblDescripcion);
 		
-		JLabel lblPrecio = new JLabel("PRECIO");
+		lblPrecio = new JLabel("PRECIO");
 		lblPrecio.setForeground(new Color(0, 64, 128));
 		lblPrecio.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblPrecio.setBounds(23, 86, 80, 19);
 		pnlFormulario.add(lblPrecio);
 		
-		JLabel lblStock = new JLabel("STOCK");
+		lblStock = new JLabel("STOCK");
 		lblStock.setForeground(new Color(0, 64, 128));
 		lblStock.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblStock.setBounds(23, 133, 61, 18);
@@ -109,14 +118,15 @@ public class CrudArticulos extends JFrame {
 		btnActualizar.setBounds(203, 181, 166, 41);
 		pnlFormulario.add(btnActualizar);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setForeground(new Color(0, 0, 0));
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "CONSULTA", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255),
+				new Color(160, 160, 160)), "CONSULTA", TitledBorder.LEADING, TitledBorder.TOP, null, 
+				new Color(0, 64, 128)));
 		panel.setBackground(new Color(241, 237, 220));
-		panel.setBounds(20, 277, 392, 258);
+		panel.setBounds(20, 277, 392, 316);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
 		
 		tblConsultaArticulos = new JTable();
 		tblConsultaArticulos.setRowHeight(22);
@@ -136,7 +146,7 @@ public class CrudArticulos extends JFrame {
 		centrarContenidoTabla(tblConsultaArticulos);
 		
 	    // Envolver la tabla en un JScrollPane para que sea desplazable
-	    JScrollPane scrollPane = new JScrollPane(tblConsultaArticulos);
+	    scrollPane = new JScrollPane(tblConsultaArticulos);
 	    scrollPane.setBounds(26, 37, 339, 132); // Ajusta el tamaño del área visible según tu diseño
 	    scrollPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 
@@ -156,17 +166,27 @@ public class CrudArticulos extends JFrame {
 		btnEliminar.setBackground(new Color(68, 119, 206));
 		btnEliminar.setBounds(199, 194, 166, 41);
 		panel.add(btnEliminar);
+		
+		btnInforme = new JButton("GENERAR INFORME");
+		btnInforme.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		btnInforme.setForeground(new Color(241, 237, 242));
+		btnInforme.setBackground(new Color(68, 119, 206));
+		btnInforme.setBounds(26, 248, 339, 41);
+		panel.add(btnInforme);
 	}
 	
-	public void ajustarAnchoColumnas(JTable tabla) {
+	public void ajustarAnchoColumnas(JTable tabla) 
+	{
 	    // Obtener el modelo de las columnas
 	    TableColumnModel columnModel = tabla.getColumnModel();
 
-	    for (int col = 0; col < tabla.getColumnCount(); col++) {
+	    for (int col = 0; col < tabla.getColumnCount(); col++) 
+	    {
 	        int maxWidth = 0; // Ancho máximo para la columna
 
 	        // Iterar sobre todas las filas para encontrar la más ancha
-	        for (int row = 0; row < tabla.getRowCount(); row++) {
+	        for (int row = 0; row < tabla.getRowCount(); row++) 
+	        {
 	            TableCellRenderer renderer = tabla.getCellRenderer(row, col);
 	            Component comp = tabla.prepareRenderer(renderer, row, col);
 	            maxWidth = Math.max(comp.getPreferredSize().width, maxWidth);

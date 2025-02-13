@@ -28,6 +28,17 @@ public class CrudTickets extends JFrame {
 	JTextField txtImporte;
 	JTable tblDelTicket;
 	JTextField txtTotal;
+	
+	JLabel lblFechaTicket;
+	JPanel panel;
+	JLabel lblArticulo;
+	JLabel lblPrecio;
+	JLabel lblCantidad;
+	JLabel lblImporte;
+	JScrollPane scrollPane;
+	JLabel lblTotal;
+	
+	JPanel panelTabla;
 
 	JButton btnAgregarArticulo;
 	JButton btnFinalizar;
@@ -36,10 +47,8 @@ public class CrudTickets extends JFrame {
 
 	Modelo datos = new Modelo();
 
-	/**
-	 * Create the frame.
-	 */
-	public CrudTickets() {
+	public CrudTickets() 
+	{
 		setTitle("TICKET Nº 1");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 549, 632);
@@ -54,38 +63,40 @@ public class CrudTickets extends JFrame {
 		LocalDate fechaHoy = LocalDate.now();
 		String fechaActual = datos.formatearFecha(fechaHoy);
 
-		JLabel lblNewLabel = new JLabel("FECHA: " + fechaActual);
-		lblNewLabel.setForeground(new Color(0, 64, 128));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblNewLabel.setBounds(357, 11, 152, 21);
-		contentPane.add(lblNewLabel);
+		lblFechaTicket = new JLabel("FECHA: " + fechaActual);
+		lblFechaTicket.setForeground(new Color(0, 64, 128));
+		lblFechaTicket.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		lblFechaTicket.setBounds(357, 11, 152, 21);
+		contentPane.add(lblFechaTicket);
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(new Color(241, 237, 220));
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
+				new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS", 
+				TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
 		panel.setBounds(20, 48, 489, 240);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblArticulo = new JLabel("ARTÍCULO");
+		lblArticulo = new JLabel("ARTÍCULO");
 		lblArticulo.setForeground(new Color(0, 64, 128));
 		lblArticulo.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblArticulo.setBounds(37, 31, 93, 32);
 		panel.add(lblArticulo);
 
-		JLabel lblPrecio = new JLabel("PRECIO");
+		lblPrecio = new JLabel("PRECIO");
 		lblPrecio.setForeground(new Color(0, 64, 128));
 		lblPrecio.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblPrecio.setBounds(37, 74, 74, 32);
 		panel.add(lblPrecio);
 
-		JLabel lblCantidad = new JLabel("CANTIDAD");
+		lblCantidad = new JLabel("CANTIDAD");
 		lblCantidad.setForeground(new Color(0, 64, 128));
 		lblCantidad.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblCantidad.setBounds(37, 119, 93, 32);
 		panel.add(lblCantidad);
 
-		JLabel lblImporte = new JLabel("IMPORTE");
+		lblImporte = new JLabel("IMPORTE");
 		lblImporte.setForeground(new Color(0, 64, 128));
 		lblImporte.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblImporte.setBounds(278, 119, 86, 32);
@@ -130,9 +141,10 @@ public class CrudTickets extends JFrame {
 		btnAgregarArticulo.setBounds(37, 175, 423, 41);
 		panel.add(btnAgregarArticulo);
 
-		JPanel panelTabla = new JPanel();
+		panelTabla = new JPanel();
 		panelTabla.setBackground(new Color(241, 237, 220));
-		panelTabla.setBorder(new TitledBorder(null, "DETALLES", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
+		panelTabla.setBorder(new TitledBorder(null, "DETALLES", TitledBorder.LEADING,
+				TitledBorder.TOP, null, new Color(0, 64, 128)));
 		panelTabla.setBounds(20, 314, 489, 254);
 		contentPane.add(panelTabla);
 		panelTabla.setLayout(null);
@@ -147,13 +159,13 @@ public class CrudTickets extends JFrame {
 		tblDelTicket.setBounds(33, 39, 416, 88);
 
 		// Envolver la tabla en un JScrollPane para que sea desplazable
-		JScrollPane scrollPane = new JScrollPane(tblDelTicket);
-		scrollPane.setBounds(33, 39, 416, 88); // Ajusta el tamaño del área visible según tu diseño
+		scrollPane = new JScrollPane(tblDelTicket);
+		scrollPane.setBounds(33, 39, 416, 88); 
 		scrollPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 
 		panelTabla.add(scrollPane);
 
-		JLabel lblTotal = new JLabel("TOTAL");
+		lblTotal = new JLabel("TOTAL");
 		lblTotal.setForeground(new Color(0, 64, 128));
 		lblTotal.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblTotal.setBounds(295, 154, 64, 26);

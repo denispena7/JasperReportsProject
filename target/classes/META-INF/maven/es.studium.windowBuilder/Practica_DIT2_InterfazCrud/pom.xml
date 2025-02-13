@@ -6,6 +6,33 @@
   <name>Practica_DIT2_InterfazCrud</name>
 
 <dependencies>
+	<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+	<dependency>
+ 		<groupId>net.sf.jasperreports</groupId>
+ 		<artifactId>jasperreports</artifactId>
+ 		<version>7.0.1</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreportspdf -->
+	<dependency>
+ 		<groupId>net.sf.jasperreports</groupId>
+ 		<artifactId>jasperreports-pdf</artifactId>
+ 		<version>7.0.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreportsexcel-poi -->
+	<dependency>
+ 		<groupId>net.sf.jasperreports</groupId>
+ 		<artifactId>jasperreports-excel-poi</artifactId>
+ 		<version>7.0.1</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+ 		<groupId>org.apache.logging.log4j</groupId>
+ 		<artifactId>log4j-core</artifactId>
+ 		<version>2.24.3</version>
+	</dependency>
 
 	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 	<dependency>
@@ -17,12 +44,13 @@
 	<dependency>
     	<groupId>com.itextpdf</groupId>
     	<artifactId>kernel</artifactId>
-    	<version>7.2.1</version> <!-- Reemplaza con tu versión -->
+    	<version>7.2.1</version>
 	</dependency>
+	
 	<dependency>
     	<groupId>com.itextpdf</groupId>
     	<artifactId>layout</artifactId>
-    	<version>7.2.1</version> <!-- Reemplaza con tu versión -->
+    	<version>7.2.1</version>
 	</dependency>
 </dependencies>
 

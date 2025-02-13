@@ -1,7 +1,6 @@
 package es.studium.practicaWindowBuilder;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -9,25 +8,26 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class DialogoArticuloBajaConfirmacion extends JDialog {
-
+public class DialogoArticuloBajaConfirmacion extends JDialog 
+{
 	private static final long serialVersionUID = 1L;
+	JPanel pnlPrincipal;
+	JLabel lblMensaje;
+	JButton btnNewButton;
 
-	/**
-	 * Create the dialog.
-	 */
-	public DialogoArticuloBajaConfirmacion() {
+	public DialogoArticuloBajaConfirmacion() 
+	{
 		setTitle("BAJA ARTÍCULOS");
 		setBounds(100, 100, 330, 130);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		{
-			JPanel pnlPrincipal = new JPanel();
+			pnlPrincipal = new JPanel();
 			pnlPrincipal.setBackground(new Color(241, 237, 220));
 			getContentPane().add(pnlPrincipal, BorderLayout.CENTER);
 			pnlPrincipal.setLayout(null);
 			{
-				JLabel lblMensaje = new JLabel("BAJA CORRECTA");
+				lblMensaje = new JLabel("BAJA CORRECTA");
 				lblMensaje.setForeground(new Color(0, 64, 128));
 				lblMensaje.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 				lblMensaje.setBounds(88, 11, 135, 23);
@@ -43,5 +43,4 @@ public class DialogoArticuloBajaConfirmacion extends JDialog {
 			}
 		}
 	}
-
 }

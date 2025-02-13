@@ -18,7 +18,6 @@ import com.itextpdf.layout.properties.UnitValue;
 public class ImprimirTicket
 {
 	Modelo datos = new Modelo();
-//	public static final String DEST = "Consulta tickets.pdf";
 
 	public ImprimirTicket(String dest, int id, String fecha, double total)
 	{

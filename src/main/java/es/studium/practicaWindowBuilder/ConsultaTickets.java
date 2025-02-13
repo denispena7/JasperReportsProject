@@ -18,17 +18,24 @@ public class ConsultaTickets extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel pnlTicket;
+	JPanel pnlInformacion;
+	JLabel lblDireccion;
+	JLabel lblCp;
+	JLabel lblTelefono;
+	JLabel lblCaja;
+	JPanel pnlConsultaTicket;
+	JLabel lblCajero;
+	JLabel lblGracias;
+	
 	JTable tblConsultaTicket;
 	JTextField txtTotal;
 	JLabel lblFecha; 
 	JButton btnImprimirTicket;
 
-	/**
-	 * Create the frame.
-	 */
-	public ConsultaTickets() {
+
+	public ConsultaTickets() 
+	{
 		setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-	//	setTitle("TICKET Nº 1");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 534);
 		setLocationRelativeTo(null);
@@ -39,25 +46,25 @@ public class ConsultaTickets extends JFrame {
 		setContentPane(pnlTicket);
 		pnlTicket.setLayout(null);
 		
-		JPanel pnlInformacion = new JPanel();
+		pnlInformacion = new JPanel();
 		pnlInformacion.setBackground(new Color(241, 237, 220));
 		pnlInformacion.setBounds(10, 11, 414, 115);
 		pnlTicket.add(pnlInformacion);
 		pnlInformacion.setLayout(null);
 		
-		JLabel lblDireccion = new JLabel("ALBERCHE 7");
+		lblDireccion = new JLabel("ALBERCHE 7");
 		lblDireccion.setForeground(new Color(0, 64, 128));
 		lblDireccion.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblDireccion.setBounds(10, 11, 99, 24);
 		pnlInformacion.add(lblDireccion);
 		
-		JLabel lblCp = new JLabel("41005 SEVILLA");
+		lblCp = new JLabel("41005 SEVILLA");
 		lblCp.setForeground(new Color(0, 64, 128));
 		lblCp.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblCp.setBounds(10, 46, 120, 24);
 		pnlInformacion.add(lblCp);
 		
-		JLabel lblTelefono = new JLabel("TELEFONO: 697152347");
+		lblTelefono = new JLabel("TELEFONO: 697152347");
 		lblTelefono.setForeground(new Color(0, 64, 128));
 		lblTelefono.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblTelefono.setBounds(10, 81, 179, 23);
@@ -69,7 +76,7 @@ public class ConsultaTickets extends JFrame {
 		lblFecha.setBounds(254, 11, 150, 21);
 		pnlInformacion.add(lblFecha);
 		
-		JLabel lblCaja = new JLabel("CAJA: 01");
+		lblCaja = new JLabel("CAJA: 01");
 		lblCaja.setForeground(new Color(0, 64, 128));
 		lblCaja.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblCaja.setBounds(327, 48, 77, 21);
@@ -80,7 +87,7 @@ public class ConsultaTickets extends JFrame {
 		sep1.setBounds(20, 137, 393, 2);
 		pnlTicket.add(sep1);
 		
-		JPanel pnlConsultaTicket = new JPanel();
+		pnlConsultaTicket = new JPanel();
 		pnlConsultaTicket.setBackground(new Color(241, 237, 220));
 		pnlConsultaTicket.setBounds(10, 150, 414, 236);
 		pnlTicket.add(pnlConsultaTicket);
@@ -97,7 +104,7 @@ public class ConsultaTickets extends JFrame {
 		
 		// Envolver la tabla en un JScrollPane para que sea desplazable
 		JScrollPane scrollPane = new JScrollPane(tblConsultaTicket);
-		scrollPane.setBounds(22, 11, 369, 132); // Ajusta el tamaño del área visible según tu diseño
+		scrollPane.setBounds(22, 11, 369, 132); 
 		scrollPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		pnlConsultaTicket.add(scrollPane);
@@ -120,13 +127,13 @@ public class ConsultaTickets extends JFrame {
 		sep2.setBounds(20, 397, 393, 2);
 		pnlTicket.add(sep2);
 		
-		JLabel lblCajero = new JLabel("LE ATENDIÓ: DENIS PEÑA");
+		lblCajero = new JLabel("LE ATENDIÓ: DENIS PEÑA");
 		lblCajero.setForeground(new Color(0, 64, 128));
 		lblCajero.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblCajero.setBounds(20, 415, 193, 29);
 		pnlTicket.add(lblCajero);
 		
-		JLabel lblGracias = new JLabel("GRACIAS POR SU VISITA");
+		lblGracias = new JLabel("GRACIAS POR SU VISITA");
 		lblGracias.setForeground(new Color(0, 64, 128));
 		lblGracias.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblGracias.setBounds(20, 455, 183, 20);

@@ -2,9 +2,6 @@ package es.studium.practicaWindowBuilder;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,10 +15,8 @@ public class MenuPrincipal extends JFrame
 	JPanel contentPane;
 	JButton btnArticulos;
 	JButton btnTickets;
+	JLabel lblInicio;
 
-	/**
-	 * Create the frame.
-	 */
 	public MenuPrincipal() 
 	{
 		setBackground(new Color(247, 246, 242));
@@ -36,21 +31,16 @@ public class MenuPrincipal extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblInicio = new JLabel("PULSA UN BOTÓN");
+		lblInicio = new JLabel("PULSA UN BOTÓN");
 		lblInicio.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		lblInicio.setBounds(86, 28, 178, 24);
 		contentPane.add(lblInicio);
 		
 		btnArticulos = new JButton("ARTÍCULOS");
-	//	btnArticulos.setContentAreaFilled(false); // Desactiva el relleno predeterminado
 		btnArticulos.setBackground(new Color(88, 135, 211));
 		btnArticulos.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 18));
 		btnArticulos.setForeground(new Color(241, 237, 220));
 		btnArticulos.setBorder(new LineBorder(Color.BLACK, 1));
-		btnArticulos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnArticulos.setBounds(39, 63, 257, 43);
 		contentPane.add(btnArticulos);
 		

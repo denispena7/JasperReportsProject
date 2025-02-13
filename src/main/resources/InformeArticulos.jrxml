@@ -1,0 +1,177 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="InformeArticulos" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d4a1d5eb-82dd-412f-a620-202e4bdf9dba">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Tiendecita"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="tableDataset" uuid="1c35bcfe-14d2-4eef-a3e5-0bbe8c69585e">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="DatasetTablaArticulos" uuid="fe57ad95-9b14-43da-ad00-0c299be77175">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Tiendecita"/>
+		<query language="SQL"><![CDATA[select * from articulos]]></query>
+		<field name="idArticulo" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="idArticulo"/>
+			<property name="com.jaspersoft.studio.field.label" value="idArticulo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+		</field>
+		<field name="descripcionArticulo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="descripcionArticulo"/>
+			<property name="com.jaspersoft.studio.field.label" value="descripcionArticulo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+		</field>
+		<field name="precioArticulo" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="precioArticulo"/>
+			<property name="com.jaspersoft.studio.field.label" value="precioArticulo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+		</field>
+		<field name="stockArticulo" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="stockArticulo"/>
+			<property name="com.jaspersoft.studio.field.label" value="stockArticulo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+		</field>
+	</dataset>
+	<query language="sql"><![CDATA[select * from articulos]]></query>
+	<field name="idArticulo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="idArticulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="idArticulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+	</field>
+	<field name="descripcionArticulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descripcionArticulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="descripcionArticulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+	</field>
+	<field name="precioArticulo" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="precioArticulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="precioArticulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+	</field>
+	<field name="stockArticulo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="stockArticulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="stockArticulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="articulos"/>
+	</field>
+	<title height="72">
+		<element kind="frame" uuid="6321f5e3-86eb-444f-acc1-8daaaa0d6c60" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+			<element kind="staticText" uuid="9e48917a-7b59-4ffd-baad-725f45563194" x="20" y="20" width="234" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+				<text><![CDATA[ARTÍCULOS]]></text>
+			</element>
+			<element kind="staticText" uuid="0a399baa-bad3-4b1a-9fe3-bb1c563e6a27" x="395" y="43" width="180" height="20" forecolor="#FFFFFF" fontSize="14.0" bold="false" hTextAlign="Right">
+				<text><![CDATA[Informe]]></text>
+			</element>
+		</element>
+	</title>
+	<pageHeader height="13"/>
+	<pageFooter height="17">
+		<element kind="textField" uuid="fed27553-a6c4-4a8a-9056-2f6f2589a3e5" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+		</element>
+		<element kind="textField" uuid="9f5ad531-d413-49c9-874b-8b99e8150fa6" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+			<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="fc593335-5cbf-4caf-97b3-ff897c676bde" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="272" splitType="Stretch">
+		<element kind="component" uuid="ca0145dd-ac96-4361-adca-70ac4bada758" x="70" y="40" width="420" height="70">
+			<component kind="table">
+				<datasetRun uuid="2cdf84bc-5048-4ecc-ba24-30518b570d7a" subDataset="DatasetTablaArticulos">
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				</datasetRun>
+				<column kind="single" uuid="049b446d-a729-4c60-8944-bf305c755b49" width="80">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="8803647f-08b7-438b-9315-70da3ae86163" x="0" y="0" width="80" height="30" fontName="Trebuchet MS" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[ID]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="e6715601-feef-4f16-98e6-26a394b634dc" x="0" y="0" width="80" height="30" fontName="Trebuchet MS" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{idArticulo}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="2e4bd30f-40e6-4e0a-964f-a09b625696ec" width="168">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="f5c79cf1-2197-4907-8cd0-db96174f2fec" x="0" y="0" width="168" height="30" fontName="Trebuchet MS" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Descripción]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="855c7fa1-328e-42d1-aea2-a0818dbd7cad" x="0" y="0" width="168" height="30" fontName="Trebuchet MS" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{descripcionArticulo}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="f962c328-1e85-4b44-bc16-4c8153acf232" width="89">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="49abedb5-d62f-4445-90b4-ae384a2de64e" x="0" y="0" width="89" height="30" fontName="Trebuchet MS" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Precio]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="76ee9b59-7ffd-4d61-91b0-b721b6f0e65e" x="0" y="0" width="89" height="30" fontName="Trebuchet MS" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{precioArticulo} + " €"]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="3c53b20e-49e5-4ae3-b235-29feb3b8cc86" width="83">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="b099dc82-d9a8-4a87-8213-e5f2c2130054" x="0" y="0" width="83" height="30" fontName="Trebuchet MS" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Cantidad]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="68de7d61-73bb-4217-bd66-e1a758f56df6" x="0" y="0" width="83" height="30" fontName="Trebuchet MS" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{stockArticulo}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+			</component>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+			<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+			<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+			<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+		</element>
+		<property name="local_mesure_unitheight" value="pixel"/>
+	</summary>
+</jasperReport>

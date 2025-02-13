@@ -1,7 +1,6 @@
 package es.studium.practicaWindowBuilder;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -12,24 +11,23 @@ import java.awt.Font;
 public class DialogoPreguntaBajaArticulos extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+	JPanel pnlPrincipal;
+	JLabel lblPregunta;
 	JButton btnSi;
 	JButton btnNo;
-
-	/**
-	 * Create the dialog.
-	 */
+	
 	public DialogoPreguntaBajaArticulos() {
 		setTitle("PELIGRO");
 		setBounds(100, 100, 420, 144);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		{
-			JPanel pnlPrincipal = new JPanel();
+			pnlPrincipal = new JPanel();
 			pnlPrincipal.setBackground(new Color(241, 237, 220));
 			getContentPane().add(pnlPrincipal, BorderLayout.CENTER);
 			pnlPrincipal.setLayout(null);
 			{
-				JLabel lblPregunta = new JLabel("¿ESTÁS SEGURO DE BORRAR ESTE ARTÍCULO?");
+				lblPregunta = new JLabel("¿ESTÁS SEGURO DE BORRAR ESTE ARTÍCULO?");
 				lblPregunta.setForeground(new Color(0, 64, 128));
 				lblPregunta.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 				lblPregunta.setBounds(30, 11, 346, 39);
@@ -53,5 +51,4 @@ public class DialogoPreguntaBajaArticulos extends JDialog {
 			}
 		}
 	}
-
 }

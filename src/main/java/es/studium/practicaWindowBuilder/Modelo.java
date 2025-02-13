@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.StringTokenizer;
@@ -82,6 +83,31 @@ public class Modelo
 	    return fecha.format(formatter);
 	}
 	
+	// Método para dar formato MySQL y ejecutar sentencias SQL
+	public String formatoMySQL(String fecha)
+	{
+		String[] fechaCambiada = fecha.split("/");
+		String fechaFormateada = fechaCambiada[2] + "-" + fechaCambiada[1] + "-" + fechaCambiada[0];
+		return fechaFormateada;
+	}
+	
+	// Función que valida las fechas
+	public boolean validarFecha(String fecha) 
+	{
+		try
+		{
+			SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+			formatoFecha.setLenient(false);
+			formatoFecha.parse(fecha);
+		
+		}
+		catch(java.text.ParseException e)
+		{
+			return false;
+		}
+		return true;
+	}
+	
 	// Método para rellenar la consulta de artículos (rellena una tabla con la info)
 	public void rellenarTablaArticulos(JTable tablaArticulos)
 	{
@@ -93,8 +119,7 @@ public class Modelo
 	        0 // Inicialmente sin filas
 	    );
 
-	    try 
-	    {
+	    try {
 	         statement = connection.createStatement();
 	         rs = statement.executeQuery(sentencia);
 	          
@@ -108,14 +133,11 @@ public class Modelo
 	            });
 	        }
 	    } 
-	    catch (SQLException e) 
-	    {
+	    catch (SQLException e){
 	        JOptionPane.showMessageDialog(null, "Error al cargar los datos: " + e.getMessage(),
 	                                      "Error", JOptionPane.ERROR_MESSAGE);
 	    }
-
-	    // Asignar el modelo actualizado a la tabla
-	    tablaArticulos.setModel(datosTabla);
+	    tablaArticulos.setModel(datosTabla);  // Asignar el modelo actualizado a la tabla
 	}
 	
 	// Método para rellenar la consulta de tickets (rellena una tabla con la info)
@@ -355,14 +377,6 @@ public class Modelo
 		
 		return precio;
 	}
-
-	// Método para dar formato MySQL y ejecutar sentencias SQL
-	public String formatoMySQL(String fecha)
-	{
-		String[] fechaCambiada = fecha.split("/");
-		String fechaFormateada = fechaCambiada[2] + "-" + fechaCambiada[1] + "-" + fechaCambiada[0];
-		return fechaFormateada;
-	}
 	
 	// Método para crear nuevos tickets
 	public boolean darAltaTicket()
@@ -392,7 +406,8 @@ public class Modelo
 	{
 		boolean altaCorrecta = true;
 		String sentenciaInsert = "INSERT INTO detalles_tickets VALUES ("+idTicket+", "+idArticulo+", "+cantidad+");";
-		String sentenciaSelect = "SELECT cantidadArticulo FROM detalles_tickets WHERE idTicketFK = "+idTicket+" AND idArticuloFK = "+idArticulo+";";
+		String sentenciaSelect = "SELECT cantidadArticulo FROM detalles_tickets WHERE idTicketFK = "+idTicket+" "
+				+ "AND idArticuloFK = "+idArticulo+";";
 		String sentenciaUpdate = "";
 		
 		try
@@ -415,7 +430,8 @@ public class Modelo
 				
 				int cantidadDespues = cantidadAntes + cantidad;
 				
-				sentenciaUpdate = "UPDATE detalles_tickets SET cantidadArticulo = "+cantidadDespues+" WHERE idTicketFK = "+idTicket+" AND idArticuloFK = "+idArticulo+";";
+				sentenciaUpdate = "UPDATE detalles_tickets SET cantidadArticulo = "+cantidadDespues+" WHERE idTicketFK = "+idTicket+" "
+						+ "AND idArticuloFK = "+idArticulo+";";
 				statement.executeUpdate(sentenciaUpdate);
 			}
 		}
