@@ -8,8 +8,18 @@ import java.time.LocalDate;
 
 import javax.swing.JOptionPane;
 
-public class Controlador implements ActionListener, ItemListener
-{
+/**
+ * Esta clase representa el controlador de la aplicaciÛn diseÒada en MVC.
+ * Comunica a las vistas con el modelo.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class Controlador implements ActionListener, ItemListener {
+	/**
+	 * Instancia del Modelo.
+	 */
 	Modelo modelo;
 	// Vistas
 	MenuPrincipal menu;
@@ -19,31 +29,36 @@ public class Controlador implements ActionListener, ItemListener
 	DialogoAltaTicket dlgAltaTicket = new DialogoAltaTicket();
 	ConsultaTickets conTickets = new ConsultaTickets();
 
-	// Dialogos de confirmaci√≥n
+	// Dialogos de confirmaciÛn
 	DialogoArticuloAltaConfirmada dlgAltaCorrecta = new DialogoArticuloAltaConfirmada();
 	DialogoTicketAltaConfirmada dlgAltaTicketCorrecta = new DialogoTicketAltaConfirmada();
-	DialogoArticuloActConfirmada dlgActualizaci√≥nCorrecta= new DialogoArticuloActConfirmada();
+	DialogoArticuloActConfirmada dlgActualizacionCorrecta = new DialogoArticuloActConfirmada();
 	DialogoArticuloBajaConfirmacion dlgBajaCorrecta = new DialogoArticuloBajaConfirmacion();
 	DialogoPreguntaBajaArticulos dlgPreguntaBaja = new DialogoPreguntaBajaArticulos();
 	RangoFechasInformeTickets dlgFechas = new RangoFechasInformeTickets();
 
-	public Controlador(Modelo m, MenuPrincipal menuP)
-	{
+	/**
+	 * Constructor por par·metros de la clase.
+	 * 
+	 * @param m     Modelo del programa.
+	 * @param menuP Men˙ principal del programa, vista principal.
+	 */
+	public Controlador(Modelo m, MenuPrincipal menuP) {
 		modelo = m;
 		menu = menuP;
 
-		// Botones del men√∫ principal
+		// Botones del men˙ principal
 		menuP.btnArticulos.addActionListener(this);
 		menuP.btnTickets.addActionListener(this);
 
-		// Botones de la vista del crud de art√≠culos
+		// Botones de la vista del crud de artÌculos
 		articulos.btnAgregar.addActionListener(this);
 		articulos.btnActualizar.addActionListener(this);
 		articulos.btnSeleccionar.addActionListener(this);
 		articulos.btnEliminar.addActionListener(this);
 		articulos.btnInforme.addActionListener(this);
 
-		// Botones de elecci√≥n de baja
+		// Botones de elecciÛn de baja
 		dlgPreguntaBaja.btnSi.addActionListener(this);
 		dlgPreguntaBaja.btnNo.addActionListener(this);
 
@@ -51,8 +66,8 @@ public class Controlador implements ActionListener, ItemListener
 		menuCrudT.btnAltaTicket.addActionListener(this);
 		menuCrudT.btnElegirTicket.addActionListener(this);
 		menuCrudT.btnInfomeTickets.addActionListener(this);
-		
-		// Bot√≥n para generar informe con las fechas
+
+		// BotÛn para generar informe con las fechas
 		dlgFechas.btnGenerarInforme.addActionListener(this);
 
 		// Botones de confirmacion para el alta de los tickets
@@ -66,37 +81,36 @@ public class Controlador implements ActionListener, ItemListener
 		// JComboBox de articulos
 		tickets.comboBox.addItemListener(this);
 
-		// Bot√≥n para imprimir tickets
+		// BotÛn para imprimir tickets
 		conTickets.btnImprimirTicket.addActionListener(this);
 	}
 
+	/**
+	 * MÈtodo que gestiona los eventos de botÛn.
+	 */
 	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		// Bot√≥n que lleva al crud de los art√≠culos
-		if(e.getSource().equals(menu.btnArticulos))
-		{
+	public void actionPerformed(ActionEvent e) {
+		// BotÛn que lleva al crud de los artÌculos
+		if (e.getSource().equals(menu.btnArticulos)) {
 			articulos.txtDescripcion.setText("");
 			articulos.txtPrecio.setText("");
 			articulos.txtStock.setText("");
 			articulos.tblConsultaArticulos.clearSelection();
 			articulos.setVisible(true);
 		}
-		// Bot√≥n que abre el men√∫ de tickets (altas y consultas como opciones)
-		else if(e.getSource().equals(menu.btnTickets))
-		{
+		// BotÛn que abre el men˙ de tickets (altas y consultas como opciones)
+		else if (e.getSource().equals(menu.btnTickets)) {
 			menuCrudT.setVisible(true);
 		}
-		// Bot√≥n que abre un cuadro de di√°logo que pide la confirmaci√≥n del alta del ticket
-		else if(e.getSource().equals(menuCrudT.btnAltaTicket))
-		{
+		// BotÛn que abre un cuadro de di·logo que pide la confirmaciÛn del alta del
+		// ticket
+		else if (e.getSource().equals(menuCrudT.btnAltaTicket)) {
 			dlgAltaTicket.setVisible(true);
 		}
-		// Bot√≥n que elige el ticket una vez seleccionado con el desplegable y muestra la consulta 
-		else if(e.getSource().equals(menuCrudT.btnElegirTicket))
-		{
-			if(menuCrudT.listaTickets.getSelectedIndex() != 0)
-			{
+		// BotÛn que elige el ticket una vez seleccionado con el desplegable y muestra
+		// la consulta
+		else if (e.getSource().equals(menuCrudT.btnElegirTicket)) {
+			if (menuCrudT.listaTickets.getSelectedIndex() != 0) {
 				int id = Integer.parseInt(menuCrudT.listaTickets.getSelectedItem().toString());
 				conTickets.setTitle("TICKET " + id);
 
@@ -112,48 +126,35 @@ public class Controlador implements ActionListener, ItemListener
 
 				conTickets.lblFecha.setText("Fecha: " + fechaTicket);
 				conTickets.txtTotal.setText(modelo.calcularTotalCompra(id));
-				modelo.desconectar();	
+				modelo.desconectar();
 
-				conTickets.setVisible(true);				
-			}
-			else
-			{
-				JOptionPane.showMessageDialog(null, "Selecciona un ticket v√°lido", "Error", JOptionPane.ERROR_MESSAGE);
+				conTickets.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "Selecciona un ticket v·lido", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n que genera dirige al dialogo de rango de fechas para informe
-		else if(e.getSource().equals(menuCrudT.btnInfomeTickets))
-		{
+		// BotÛn que genera dirige al dialogo de rango de fechas para informe
+		else if (e.getSource().equals(menuCrudT.btnInfomeTickets)) {
 			dlgFechas.setVisible(true);
 		}
-		// Bot√≥n que genera el informe
-		else if(e.getSource().equals(dlgFechas.btnGenerarInforme))
-		{
+		// BotÛn que genera el informe
+		else if (e.getSource().equals(dlgFechas.btnGenerarInforme)) {
 			String fechaDesde = dlgFechas.txtFechaDesde.getText();
 			String fechaHasta = dlgFechas.txtFechaHasta.getText();
-			
-			if(fechaDesde.equals("") || fechaHasta.equals(""))
-			{
-				JOptionPane.showMessageDialog(null, "Rellena los campos de fecha", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
-			else
-			{
-				if(modelo.validarFecha(fechaDesde) && modelo.validarFecha(fechaHasta))
-				{
-					new InformeTicketsJasperSoft(modelo.formatoMySQL(fechaDesde), 
-							modelo.formatoMySQL(fechaHasta));
-				}
-				else
-				{
-					JOptionPane.showMessageDialog(null, "Fecha Incorrecta", "Error",
-							JOptionPane.ERROR_MESSAGE);
+
+			if (fechaDesde.equals("") || fechaHasta.equals("")) {
+				JOptionPane.showMessageDialog(null, "Rellena los campos de fecha", "Error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				if (modelo.validarFecha(fechaDesde) && modelo.validarFecha(fechaHasta)) {
+					new InformeTicketsJasperSoft(modelo.formatoMySQL(fechaDesde), modelo.formatoMySQL(fechaHasta));
+				} else {
+					JOptionPane.showMessageDialog(null, "Fecha Incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
-		// Bot√≥n que REALIZA EL ALTA DEL TICKET y muestra la venta para sumar art√≠culos al ticket
-		else if(e.getSource().equals(dlgAltaTicket.btnSiguiente))
-		{
+		// BotÛn que REALIZA EL ALTA DEL TICKET y muestra la venta para sumar
+		// artÌculos al ticket
+		else if (e.getSource().equals(dlgAltaTicket.btnSiguiente)) {
 			// Dar el alta de TICKET
 			modelo.conectar();
 			modelo.darAltaTicket();
@@ -162,9 +163,8 @@ public class Controlador implements ActionListener, ItemListener
 			menuCrudT.listaTickets.removeAllItems();
 			String[] elementos = modelo.rellenarListaTickets();
 
-			for(String elemento: elementos)
-			{
-				menuCrudT.listaTickets.addItem(elemento);				
+			for (String elemento : elementos) {
+				menuCrudT.listaTickets.addItem(elemento);
 			}
 
 			dlgAltaTicket.setVisible(false);
@@ -175,19 +175,16 @@ public class Controlador implements ActionListener, ItemListener
 
 			modelo.desconectar();
 		}
-		// Bot√≥n para volver al men√∫ del crud de los tickets
-		else if(e.getSource().equals(dlgAltaTicket.btnVolver))
-		{
+		// BotÛn para volver al men˙ del crud de los tickets
+		else if (e.getSource().equals(dlgAltaTicket.btnVolver)) {
 			dlgAltaTicket.setVisible(false);
 		}
-		// Bot√≥n que selecciona una fila de la tabla
-		else if(e.getSource().equals(articulos.btnSeleccionar))
-		{			
+		// BotÛn que selecciona una fila de la tabla
+		else if (e.getSource().equals(articulos.btnSeleccionar)) {
 			int filaSeleccionada = articulos.tblConsultaArticulos.getSelectedRow(); // Obtiene la fila seleccionada
 
-			if (filaSeleccionada >= 0)
-			{ 
-				// Verifica que una fila est√© seleccionada
+			if (filaSeleccionada >= 0) {
+				// Verifica que una fila est· seleccionada
 				String descripcion = articulos.tblConsultaArticulos.getValueAt(filaSeleccionada, 1) + "".trim();
 				String precio = articulos.tblConsultaArticulos.getValueAt(filaSeleccionada, 2) + "".trim();
 				String stock = articulos.tblConsultaArticulos.getValueAt(filaSeleccionada, 3) + "".trim();
@@ -195,33 +192,26 @@ public class Controlador implements ActionListener, ItemListener
 				articulos.txtDescripcion.setText(descripcion);
 				articulos.txtPrecio.setText(precio);
 				articulos.txtStock.setText(stock);
-			} 
-			else 
-			{
-				JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila.", "Error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n que da de alta art√≠culos
-		else if(e.getSource().equals(articulos.btnAgregar))
-		{
-			try
-			{
+		// BotÛn que da de alta art√≠culos
+		else if (e.getSource().equals(articulos.btnAgregar)) {
+			try {
 				String descripcion = articulos.txtDescripcion.getText();
 
-				if(articulos.txtDescripcion.getText().equals("") || articulos.txtPrecio.getText().equals("")
-						|| articulos.txtStock.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
+				if (articulos.txtDescripcion.getText().equals("") || articulos.txtPrecio.getText().equals("")
+						|| articulos.txtStock.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
 					modelo.conectar();
-					if(modelo.comprobarExistencia(descripcion))
-					{
-						JOptionPane.showMessageDialog(null, "El art√≠culo ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
-					}
-					else
-					{
+					if (modelo.comprobarExistencia(descripcion)) {
+						JOptionPane.showMessageDialog(null, "El artÌculo ya existe.", "Error",
+								JOptionPane.ERROR_MESSAGE);
+					} else {
 						float precio = Float.parseFloat(articulos.txtPrecio.getText().split(" ")[0]);
 						int stock = Integer.parseInt(articulos.txtStock.getText());
 
@@ -229,36 +219,30 @@ public class Controlador implements ActionListener, ItemListener
 						modelo.rellenarTablaArticulos(articulos.tblConsultaArticulos);
 						articulos.centrarContenidoTabla(articulos.tblConsultaArticulos);
 						articulos.ajustarAnchoColumnas(articulos.tblConsultaArticulos);
-						articulos.limpiar();						
+						articulos.limpiar();
 					}
 					modelo.desconectar();
 
-					// Mostrar dlg de confirmaci√≥n
+					// Mostrar dlg de confirmaciÛn
 					dlgAltaCorrecta.setVisible(true);
 				}
-			}
-			catch(NumberFormatException nfe)
-			{
-				JOptionPane.showMessageDialog(null, "Formato de entrada no v√°lido.", "Error", JOptionPane.ERROR_MESSAGE);
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "Formato de entrada no v·lido.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n que actualiza un art√≠culo
-		else if(e.getSource().equals(articulos.btnActualizar))
-		{
-			try
-			{
+		// BotÛn que actualiza un artÌculo
+		else if (e.getSource().equals(articulos.btnActualizar)) {
+			try {
 				String descripcion = articulos.txtDescripcion.getText();
 
-				if(articulos.txtDescripcion.getText().equals("") || articulos.txtPrecio.getText().equals("")
-						|| articulos.txtStock.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de art√≠culo.", "Error", 
-							JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
-					int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(),
-							0) + "".trim());
+				if (articulos.txtDescripcion.getText().equals("") || articulos.txtPrecio.getText().equals("")
+						|| articulos.txtStock.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artÌculo.",
+							"Error", JOptionPane.ERROR_MESSAGE);
+				} else {
+					int id = Integer.parseInt(articulos.tblConsultaArticulos
+							.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(), 0) + "".trim());
 					float precio = Float.parseFloat(articulos.txtPrecio.getText().split(" ")[0]);
 					int stock = Integer.parseInt(articulos.txtStock.getText());
 
@@ -271,47 +255,39 @@ public class Controlador implements ActionListener, ItemListener
 
 					articulos.limpiar();
 
-					// Mostrar dlg de confirmaci√≥n
-					dlgActualizaci√≥nCorrecta.setVisible(true);
+					// Mostrar dlg de confirmaciÛn
+					dlgActualizacionCorrecta.setVisible(true);
 				}
-			}
-			catch(NumberFormatException nfe)
-			{
-				JOptionPane.showMessageDialog(null, "Formato de entrada no v√°lido.", "Error", JOptionPane.ERROR_MESSAGE);
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "Formato de entrada no v·lido.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n para eliminar art√≠culos
-		else if(e.getSource().equals(articulos.btnEliminar))
-		{
-			try
-			{
-				if(articulos.txtDescripcion.getText().equals("") && articulos.txtPrecio.getText().equals("")
-						&& articulos.txtStock.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de art√≠culo.", 
+		// BotÛn para eliminar artÌculos
+		else if (e.getSource().equals(articulos.btnEliminar)) {
+			try {
+				if (articulos.txtDescripcion.getText().equals("") && articulos.txtPrecio.getText().equals("")
+						&& articulos.txtStock.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Los campos deben corresponder a un registro de artÌculo.",
 							"Error", JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
+				} else {
 					dlgPreguntaBaja.setVisible(true);
 				}
-			}
-			catch(NumberFormatException nfe)
-			{
-				JOptionPane.showMessageDialog(null, "El id especificado no es v√°lido.", "Error", JOptionPane.ERROR_MESSAGE);
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "El id especificado no es v·lido.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n para generar un informe con JasperReports
-		else if(e.getSource().equals(articulos.btnInforme))
-		{
-			// c√≥digo que genera el informe
+		// BotÛn para generar un informe con JasperReports
+		else if (e.getSource().equals(articulos.btnInforme)) {
+			// cÛdigo que genera el informe
 			new InformeArticulosJasperSoft();
 		}
-		// Bot√≥n que ELIMINA UN TICKET
-		else if(e.getSource().equals(dlgPreguntaBaja.btnSi))
-		{
-			int id = Integer.parseInt(articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(),
-					0) + "".trim());
+		// BotÛn que ELIMINA UN TICKET
+		else if (e.getSource().equals(dlgPreguntaBaja.btnSi)) {
+			int id = Integer.parseInt(
+					articulos.tblConsultaArticulos.getValueAt(articulos.tblConsultaArticulos.getSelectedRow(), 0)
+							+ "".trim());
 
 			modelo.conectar();
 			modelo.bajaArticulo(id);
@@ -322,31 +298,26 @@ public class Controlador implements ActionListener, ItemListener
 
 			articulos.limpiar();
 
-			// Mostrar dlg de confirmaci√≥n
+			// Mostrar dlg de confirmaciÛn
 			dlgPreguntaBaja.setVisible(false);
 			dlgBajaCorrecta.setVisible(true);
 
 		}
-		// Bot√≥n que cancela la baja del art√≠culo
-		else if(e.getSource().equals(dlgPreguntaBaja.btnNo))
-		{
+		// BotÛn que cancela la baja del artÌculo
+		else if (e.getSource().equals(dlgPreguntaBaja.btnNo)) {
 			dlgPreguntaBaja.setVisible(false);
 		}
-		// Bot√≥n que agrega un art√≠culo al ticket
-		else if(e.getSource().equals(tickets.btnAgregarArticulo))
-		{
+		// BotÛn que agrega un artÌculo al ticket
+		else if (e.getSource().equals(tickets.btnAgregarArticulo)) {
 			// Dar el alta de Detalles_Tickets
-			try
-			{
+			try {
 				String articulo = tickets.comboBox.getSelectedItem().toString();
 
-				if(tickets.comboBox.getSelectedIndex() == 0 || tickets.txtPrecio.getText().equals("") 
-						|| tickets.txtCantidad.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-				else
-				{
+				if (tickets.comboBox.getSelectedIndex() == 0 || tickets.txtPrecio.getText().equals("")
+						|| tickets.txtCantidad.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Tienes que rellenar todos los campos.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
 					modelo.conectar();
 
 					float precio = Float.parseFloat(tickets.txtPrecio.getText().split(" ")[0]);
@@ -356,28 +327,25 @@ public class Controlador implements ActionListener, ItemListener
 					modelo.rellenarTablaTickets(tickets.tblDelTicket, modelo.idTicket());
 					articulos.centrarContenidoTabla(tickets.tblDelTicket);
 					articulos.ajustarAnchoColumnas(tickets.tblDelTicket);
-					tickets.txtImporte.setText(precio * cantidad + " ‚Ç¨");
+					tickets.txtImporte.setText(precio * cantidad + " Ä");
 					tickets.txtTotal.setText(modelo.calcularTotalCompra(modelo.idTicket()));
-					modelo.desconectar();			
+					modelo.desconectar();
 
 				}
-			}
-			catch(NumberFormatException nfe)
-			{
-				JOptionPane.showMessageDialog(null, "Formato de entrada no v√°lido.", "Error", JOptionPane.ERROR_MESSAGE);
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "Formato de entrada no v·lido.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		// Bot√≥n para finalizar la compra
-		else if(e.getSource().equals(tickets.btnFinalizar))
-		{
-			// Mostra dlg de confirmaci√≥n
+		// BotÛn para finalizar la compra
+		else if (e.getSource().equals(tickets.btnFinalizar)) {
+			// Mostra dlg de confirmaciÛn
 			dlgAltaTicketCorrecta.setVisible(true);
 			tickets.limpiar(tickets.tblDelTicket);
 			tickets.setVisible(false);
 		}
-		// Bot√≥n para imprimir el ticket
-		else if(e.getSource().equals(conTickets.btnImprimirTicket))
-		{
+		// BotÛn para imprimir el ticket
+		else if (e.getSource().equals(conTickets.btnImprimirTicket)) {
 			// Imprimir el ticket
 			int id = Integer.parseInt(menuCrudT.listaTickets.getSelectedItem().toString());
 			Double total = Double.parseDouble(conTickets.txtTotal.getText().split(" ")[0]);
@@ -394,15 +362,16 @@ public class Controlador implements ActionListener, ItemListener
 		}
 	}
 
+	/**
+	 * MÈtodo que gestiona los eventos de listas desplegables.
+	 */
 	@Override
-	public void itemStateChanged(ItemEvent e) 
-	{
-		// Si se selecciona un art√≠culo, se colocar√° el precio respectivo en un txt
-		if(e.getStateChange() == ItemEvent.SELECTED)
-		{
+	public void itemStateChanged(ItemEvent e) {
+		// Si se selecciona un artÌculo, se colocar· el precio respectivo en un txt
+		if (e.getStateChange() == ItemEvent.SELECTED) {
 			modelo.conectar();
 			String articulo = e.getItem().toString();
-			tickets.txtPrecio.setText(modelo.encontrarPrecio(articulo) + " ‚Ç¨");
+			tickets.txtPrecio.setText(modelo.encontrarPrecio(articulo) + " Ä");
 			modelo.desconectar();
 		}
 	}

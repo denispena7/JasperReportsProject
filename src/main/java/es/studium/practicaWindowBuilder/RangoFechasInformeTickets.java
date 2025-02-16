@@ -10,16 +10,28 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-public class RangoFechasInformeTickets extends JDialog 
-{
+/**
+ * Esta clase representa la vista que pregunta el rango de fechas para generar
+ * el informe de tickets.
+ * 
+ * @author Denis Peña
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class RangoFechasInformeTickets extends JDialog {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	JTextField txtFechaDesde;
 	JTextField txtFechaHasta;
 	JButton btnGenerarInforme;
 
-	public RangoFechasInformeTickets() 
-	{
+	/**
+	 * Constructor vacío de la clase.
+	 */
+	public RangoFechasInformeTickets() {
 		setTitle("Consulta Tickets");
 		setBounds(100, 100, 357, 236);
 		setLocationRelativeTo(null);
@@ -48,13 +60,13 @@ public class RangoFechasInformeTickets extends JDialog
 			btnGenerarInforme.setBounds(44, 132, 255, 41);
 			contentPanel.add(btnGenerarInforme);
 		}
-		
+
 		txtFechaDesde = new JTextField();
 		txtFechaDesde.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		txtFechaDesde.setBounds(179, 35, 120, 30);
 		contentPanel.add(txtFechaDesde);
 		txtFechaDesde.setColumns(10);
-		
+
 		txtFechaHasta = new JTextField();
 		txtFechaHasta.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		txtFechaHasta.setBounds(179, 85, 120, 30);

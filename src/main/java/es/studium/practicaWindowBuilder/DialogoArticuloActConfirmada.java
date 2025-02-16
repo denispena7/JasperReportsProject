@@ -8,15 +8,28 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
+/**
+ * Esta clase representa la vista que confirma que la actualizaciÛn de un
+ * artÌculo ha sido realizada.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
 public class DialogoArticuloActConfirmada extends JDialog {
-
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	JPanel pnlPrincipal;
 	JLabel lblMensaje;
 	JButton btnOK;
 
+	/**
+	 * Constructor vacÌo de la clase.
+	 */
 	public DialogoArticuloActConfirmada() {
-		setTitle("ACTUALIZACI√ìN ART√çCULOS");
+		setTitle("ACTUALIZACI”N ARTÕCULOS");
 		setBounds(100, 100, 312, 131);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
@@ -26,7 +39,7 @@ public class DialogoArticuloActConfirmada extends JDialog {
 			getContentPane().add(pnlPrincipal, BorderLayout.CENTER);
 			pnlPrincipal.setLayout(null);
 			{
-				lblMensaje = new JLabel("ACTUALIZACI√ìN CORRECTA");
+				lblMensaje = new JLabel("ACTUALIZACI”N CORRECTA");
 				lblMensaje.setForeground(new Color(0, 64, 128));
 				lblMensaje.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 				lblMensaje.setBounds(37, 11, 218, 25);

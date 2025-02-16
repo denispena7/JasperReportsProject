@@ -8,16 +8,27 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class DialogoArticuloAltaConfirmada extends JDialog 
-{
+/**
+ * Esta clase representa la vista que confirma el alta de un artÌculo.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class DialogoArticuloAltaConfirmada extends JDialog {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	JPanel pnlPrincipal;
 	JLabel lblMensaje;
 	JButton btnOK;
 
-	public DialogoArticuloAltaConfirmada() 
-	{
-		setTitle("ALTA ART√çCULO");
+	/**
+	 * Constructor vacÌo de la clase.
+	 */
+	public DialogoArticuloAltaConfirmada() {
+		setTitle("ALTA ARTÕCULO");
 		setBounds(100, 100, 330, 127);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

@@ -9,16 +9,27 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public class MenuPrincipal extends JFrame 
-{
+/**
+ * Esta clase representa la vista principal de la aplicaciÛn.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class MenuPrincipal extends JFrame {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	JPanel contentPane;
 	JButton btnArticulos;
 	JButton btnTickets;
 	JLabel lblInicio;
 
-	public MenuPrincipal() 
-	{
+	/**
+	 * Constructor vacÌo de la clase.
+	 */
+	public MenuPrincipal() {
 		setBackground(new Color(247, 246, 242));
 		setTitle("WindowBuilder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,20 +41,20 @@ public class MenuPrincipal extends JFrame
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		lblInicio = new JLabel("PULSA UN BOT√ìN");
+
+		lblInicio = new JLabel("PULSA UN BOT”N");
 		lblInicio.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		lblInicio.setBounds(86, 28, 178, 24);
 		contentPane.add(lblInicio);
-		
-		btnArticulos = new JButton("ART√çCULOS");
+
+		btnArticulos = new JButton("ARTÕCULOS");
 		btnArticulos.setBackground(new Color(88, 135, 211));
 		btnArticulos.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 18));
 		btnArticulos.setForeground(new Color(241, 237, 220));
 		btnArticulos.setBorder(new LineBorder(Color.BLACK, 1));
 		btnArticulos.setBounds(39, 63, 257, 43);
 		contentPane.add(btnArticulos);
-		
+
 		btnTickets = new JButton("TICKETS");
 		btnTickets.setForeground(new Color(241, 237, 220));
 		btnTickets.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 18));
@@ -51,7 +62,7 @@ public class MenuPrincipal extends JFrame
 		btnTickets.setBackground(new Color(88, 135, 211));
 		btnTickets.setBounds(39, 117, 257, 43);
 		contentPane.add(btnTickets);
-		
+
 		setVisible(true);
 	}
 }

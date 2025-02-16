@@ -8,18 +8,30 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 
-public class DialogoAltaTicket extends JDialog 
-{
+/**
+ * Esta clase representa la vista del diálogo que pregunta si se quiere crear un
+ * nuevo ticket.
+ * 
+ * @author Denis Peña
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class DialogoAltaTicket extends JDialog {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	JPanel pnlPrincipal;
 	JLabel lblMensaje;
-	
+
 	JButton btnSiguiente;
 	JButton btnVolver;
 
-	public DialogoAltaTicket()
-	{
+	/**
+	 * Constructor vacío de la clase.
+	 */
+	public DialogoAltaTicket() {
 		setTitle("ALTA TICKET");
 		setBounds(100, 100, 404, 210);
 		setLocationRelativeTo(null);

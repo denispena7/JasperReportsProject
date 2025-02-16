@@ -9,13 +9,25 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class DialogoTicketAltaConfirmada extends JDialog 
-{
+/**
+ * Esta clase representa la vista que confirma que un ticket ha sido de alta.
+ * 
+ * @author Denis Peña
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class DialogoTicketAltaConfirmada extends JDialog {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	JPanel pnlPrincipal;
 	JLabel lblMensaje;
 	JButton btnOK;
 
+	/**
+	 * Constructor vacío de la clase.
+	 */
 	public DialogoTicketAltaConfirmada() {
 		setTitle("ALTA CORRECTA TICKET");
 		setBounds(100, 100, 330, 129);

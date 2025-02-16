@@ -8,16 +8,27 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class DialogoArticuloBajaConfirmacion extends JDialog 
-{
+/**
+ * Esta clase representa la vista que confirma la baja de un artÌculo.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
+public class DialogoArticuloBajaConfirmacion extends JDialog {
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	JPanel pnlPrincipal;
 	JLabel lblMensaje;
 	JButton btnNewButton;
 
-	public DialogoArticuloBajaConfirmacion() 
-	{
-		setTitle("BAJA ART√çCULOS");
+	/**
+	 * Constructor vacÌo de la clase
+	 */
+	public DialogoArticuloBajaConfirmacion() {
+		setTitle("BAJA ARTÕCULOS");
 		setBounds(100, 100, 330, 130);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

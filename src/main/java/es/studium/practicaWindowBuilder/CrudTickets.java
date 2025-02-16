@@ -19,8 +19,17 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Esta clase representa la vista del CRUD de los tickets.
+ * 
+ * @author Denis PeÒa
+ * @version 1.0
+ * @since 2025-02-12
+ */
 public class CrudTickets extends JFrame {
-
+	/**
+	 * @serial
+	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	JTextField txtPrecio;
@@ -28,7 +37,7 @@ public class CrudTickets extends JFrame {
 	JTextField txtImporte;
 	JTable tblDelTicket;
 	JTextField txtTotal;
-	
+
 	JLabel lblFechaTicket;
 	JPanel panel;
 	JLabel lblArticulo;
@@ -37,7 +46,7 @@ public class CrudTickets extends JFrame {
 	JLabel lblImporte;
 	JScrollPane scrollPane;
 	JLabel lblTotal;
-	
+
 	JPanel panelTabla;
 
 	JButton btnAgregarArticulo;
@@ -45,11 +54,16 @@ public class CrudTickets extends JFrame {
 
 	JComboBox<String> comboBox;
 
+	/**
+	 * Instancia del Modelo del programa.
+	 */
 	Modelo datos = new Modelo();
 
-	public CrudTickets() 
-	{
-		setTitle("TICKET N¬∫ 1");
+	/**
+	 * Constructor vacÌo de la clase.
+	 */
+	public CrudTickets() {
+		setTitle("TICKET N∫ 1");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 549, 632);
 		setLocationRelativeTo(null);
@@ -71,14 +85,14 @@ public class CrudTickets extends JFrame {
 
 		panel = new JPanel();
 		panel.setBackground(new Color(241, 237, 220));
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, 
-				new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS", 
+		panel.setBorder(new TitledBorder(
+				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "DATOS",
 				TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 64, 128)));
 		panel.setBounds(20, 48, 489, 240);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		lblArticulo = new JLabel("ART√çCULO");
+		lblArticulo = new JLabel("ARTÕCULO");
 		lblArticulo.setForeground(new Color(0, 64, 128));
 		lblArticulo.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblArticulo.setBounds(37, 31, 93, 32);
@@ -134,7 +148,7 @@ public class CrudTickets extends JFrame {
 		comboBox.setBounds(160, 39, 300, 25);
 		panel.add(comboBox);
 
-		btnAgregarArticulo = new JButton("AGREGAR ART√çCULO");
+		btnAgregarArticulo = new JButton("AGREGAR ARTÕCULO");
 		btnAgregarArticulo.setForeground(new Color(232, 232, 232));
 		btnAgregarArticulo.setBackground(new Color(68, 119, 206));
 		btnAgregarArticulo.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
@@ -143,8 +157,8 @@ public class CrudTickets extends JFrame {
 
 		panelTabla = new JPanel();
 		panelTabla.setBackground(new Color(241, 237, 220));
-		panelTabla.setBorder(new TitledBorder(null, "DETALLES", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(0, 64, 128)));
+		panelTabla.setBorder(new TitledBorder(null, "DETALLES", TitledBorder.LEADING, TitledBorder.TOP, null,
+				new Color(0, 64, 128)));
 		panelTabla.setBounds(20, 314, 489, 254);
 		contentPane.add(panelTabla);
 		panelTabla.setLayout(null);
@@ -160,7 +174,7 @@ public class CrudTickets extends JFrame {
 
 		// Envolver la tabla en un JScrollPane para que sea desplazable
 		scrollPane = new JScrollPane(tblDelTicket);
-		scrollPane.setBounds(33, 39, 416, 88); 
+		scrollPane.setBounds(33, 39, 416, 88);
 		scrollPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 
 		panelTabla.add(scrollPane);
@@ -186,8 +200,12 @@ public class CrudTickets extends JFrame {
 		panelTabla.add(btnFinalizar);
 	}
 
-	public void limpiar(JTable tabla)
-	{
+	/**
+	 * MÈtodo que limpia la tabla.
+	 * 
+	 * @param tabla Tabla a limpiar.
+	 */
+	public void limpiar(JTable tabla) {
 		comboBox.setSelectedIndex(0);
 		txtCantidad.setText("");
 		txtPrecio.setText("");
@@ -196,9 +214,8 @@ public class CrudTickets extends JFrame {
 
 		// Crear un modelo vac√≠o con los encabezados originales
 		DefaultTableModel modeloVacio = new DefaultTableModel(
-				new String[] { "DESCRIPCI√ìN", "PRECIO", "CANTIDAD", "IMPORTE" },
-				0 // Sin filas
-				);
+				new String[] { "DESCRIPCI”N", "PRECIO", "CANTIDAD", "IMPORTE" }, 0 // Sin filas
+		);
 
 		// Asignar el modelo vac√≠o a la tabla
 		tabla.setModel(modeloVacio);
