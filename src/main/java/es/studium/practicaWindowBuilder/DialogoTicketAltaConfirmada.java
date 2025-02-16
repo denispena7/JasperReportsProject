@@ -12,7 +12,7 @@ import java.awt.Font;
 /**
  * Esta clase representa la vista que confirma que un ticket ha sido de alta.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -26,7 +26,7 @@ public class DialogoTicketAltaConfirmada extends JDialog {
 	JButton btnOK;
 
 	/**
-	 * Constructor vacío de la clase.
+	 * Constructor vacÃ­o de la clase.
 	 */
 	public DialogoTicketAltaConfirmada() {
 		setTitle("ALTA CORRECTA TICKET");

@@ -9,10 +9,10 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 /**
- * Esta clase representa la vista del di·logo que pregunta si se quiere crear un
+ * Esta clase representa la vista del di√°logo que pregunta si se quiere crear un
  * nuevo ticket.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -29,7 +29,7 @@ public class DialogoAltaTicket extends JDialog {
 	JButton btnVolver;
 
 	/**
-	 * Constructor vacÌo de la clase.
+	 * Constructor vac√≠o de la clase.
 	 */
 	public DialogoAltaTicket() {
 		setTitle("ALTA TICKET");

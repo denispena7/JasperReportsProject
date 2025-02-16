@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 /**
- * Esta clase representa la vista que pregunta si se da de baja un artÌculo o
+ * Esta clase representa la vista que pregunta si se da de baja un art√≠culo o
  * no.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -28,7 +28,7 @@ public class DialogoPreguntaBajaArticulos extends JDialog {
 	JButton btnNo;
 
 	/**
-	 * Constructor vacÌo de la clase
+	 * Constructor vac√≠o de la clase
 	 */
 	public DialogoPreguntaBajaArticulos() {
 		setTitle("PELIGRO");
@@ -41,7 +41,7 @@ public class DialogoPreguntaBajaArticulos extends JDialog {
 			getContentPane().add(pnlPrincipal, BorderLayout.CENTER);
 			pnlPrincipal.setLayout(null);
 			{
-				lblPregunta = new JLabel("øEST¡S SEGURO DE BORRAR ESTE ARTÕCULO?");
+				lblPregunta = new JLabel("¬øEST√ÅS SEGURO DE BORRAR ESTE ART√çCULO?");
 				lblPregunta.setForeground(new Color(0, 64, 128));
 				lblPregunta.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 				lblPregunta.setBounds(30, 11, 346, 39);

@@ -14,18 +14,16 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
- * Esta clase se ocupa de generar informe con JasperReports de los artÌculos
+ * Esta clase se ocupa de generar informe con JasperReports de los art√≠culos
  * registrados.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
 public class InformeArticulosJasperSoft {
 	/**
-	 * Constructor vacÌo de la clase.
-	 * 
-	 * @throws Exception Si algo malo ocurre.
+	 * Constructor vac√≠o de la clase.
 	 */
 	public InformeArticulosJasperSoft() {
 		try {
@@ -33,16 +31,16 @@ public class InformeArticulosJasperSoft {
 			JasperCompileManager.compileReportToFile("./src/main/resources/InformeArticulos.jrxml");
 			System.out.println("Fichero InformeArticulos.jasper generado CORRECTAMENTE!");
 
-			// Objeto para guardar par·metros necesarios para el informe
+			// Objeto para guardar par√°metros necesarios para el informe
 			HashMap<String, Object> parametros = new HashMap<String, Object>();
 
 			// Cargar el informe compilado
 			JasperReport report = (JasperReport) JRLoader
 					.loadObjectFromFile("./src/main/resources/InformeArticulos.jasper");
 
-			// Conectar a la base de datos para sacar la informaciÛn
+			// Conectar a la base de datos para sacar la informaci√≥n
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String servidor = "jdbc:mysql://localhost:3306/tiendecitaDPM?useSSL=false";
+			String servidor = "jdbc:mysql://localhost:3306/tiendecitaDPM?";
 			String usuarioDB = "root";
 			String passwordDB = "Studium2024;";
 			Connection conexion = DriverManager.getConnection(servidor, usuarioDB, passwordDB);

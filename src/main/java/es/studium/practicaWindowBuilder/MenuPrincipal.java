@@ -10,9 +10,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 /**
- * Esta clase representa la vista principal de la aplicaciÛn.
+ * Esta clase representa la vista principal de la aplicaci√≥n.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -27,7 +27,7 @@ public class MenuPrincipal extends JFrame {
 	JLabel lblInicio;
 
 	/**
-	 * Constructor vacÌo de la clase.
+	 * Constructor vac√≠o de la clase.
 	 */
 	public MenuPrincipal() {
 		setBackground(new Color(247, 246, 242));
@@ -42,12 +42,12 @@ public class MenuPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lblInicio = new JLabel("PULSA UN BOT”N");
+		lblInicio = new JLabel("PULSA UN BOT√ìN");
 		lblInicio.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		lblInicio.setBounds(86, 28, 178, 24);
 		contentPane.add(lblInicio);
 
-		btnArticulos = new JButton("ARTÕCULOS");
+		btnArticulos = new JButton("ART√çCULOS");
 		btnArticulos.setBackground(new Color(88, 135, 211));
 		btnArticulos.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 18));
 		btnArticulos.setForeground(new Color(241, 237, 220));

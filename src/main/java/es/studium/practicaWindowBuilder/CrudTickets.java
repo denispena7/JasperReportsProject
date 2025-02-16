@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * Esta clase representa la vista del CRUD de los tickets.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -60,10 +60,10 @@ public class CrudTickets extends JFrame {
 	Modelo datos = new Modelo();
 
 	/**
-	 * Constructor vacÌo de la clase.
+	 * Constructor vac√≠o de la clase.
 	 */
 	public CrudTickets() {
-		setTitle("TICKET N∫ 1");
+		setTitle("TICKET N¬∫ 1");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 549, 632);
 		setLocationRelativeTo(null);
@@ -92,7 +92,7 @@ public class CrudTickets extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		lblArticulo = new JLabel("ARTÕCULO");
+		lblArticulo = new JLabel("ART√çCULO");
 		lblArticulo.setForeground(new Color(0, 64, 128));
 		lblArticulo.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblArticulo.setBounds(37, 31, 93, 32);
@@ -148,7 +148,7 @@ public class CrudTickets extends JFrame {
 		comboBox.setBounds(160, 39, 300, 25);
 		panel.add(comboBox);
 
-		btnAgregarArticulo = new JButton("AGREGAR ARTÕCULO");
+		btnAgregarArticulo = new JButton("AGREGAR ART√çCULO");
 		btnAgregarArticulo.setForeground(new Color(232, 232, 232));
 		btnAgregarArticulo.setBackground(new Color(68, 119, 206));
 		btnAgregarArticulo.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
@@ -201,7 +201,7 @@ public class CrudTickets extends JFrame {
 	}
 
 	/**
-	 * MÈtodo que limpia la tabla.
+	 * M√©todo que limpia la tabla.
 	 * 
 	 * @param tabla Tabla a limpiar.
 	 */
@@ -214,7 +214,7 @@ public class CrudTickets extends JFrame {
 
 		// Crear un modelo vac√≠o con los encabezados originales
 		DefaultTableModel modeloVacio = new DefaultTableModel(
-				new String[] { "DESCRIPCI”N", "PRECIO", "CANTIDAD", "IMPORTE" }, 0 // Sin filas
+				new String[] { "DESCRIPCI√ìN", "PRECIO", "CANTIDAD", "IMPORTE" }, 0 // Sin filas
 		);
 
 		// Asignar el modelo vac√≠o a la tabla

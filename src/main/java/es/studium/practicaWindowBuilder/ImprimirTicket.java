@@ -16,27 +16,26 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
 
 /**
- * Esta clase es la que se ocupa de gestionar la lógica que genera un fichero
+ * Esta clase es la que se ocupa de gestionar la lÃ³gica que genera un fichero
  * PDF a partir de un ticket.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
 public class ImprimirTicket {
 	/**
-	 * Instancia del Modelo de la aplicación.
+	 * Instancia del Modelo de la aplicaciÃ³n.
 	 */
 	Modelo datos = new Modelo();
 
 	/**
-	 * Constructor por parámetros de la clase.
+	 * Constructor por parÃ¡metros de la clase.
 	 * 
 	 * @param dest  Fichero a generar.
 	 * @param id    Id del ticket.
 	 * @param fecha Fecha del ticket.
 	 * @param total Total del ticket.
-	 * @throws IOException Si hay un error en el flujo de información
 	 */
 	public ImprimirTicket(String dest, int id, String fecha, double total) {
 		try {
@@ -44,10 +43,10 @@ public class ImprimirTicket {
 			PdfWriter writer = new PdfWriter(dest);
 			// Inicializar el documento pdf
 			PdfDocument pdf = new PdfDocument(writer);
-			// Inicializar documento, como parámetros indicamos el PdfDocument a utilizar y
-			// el tamaño de la hoja
+			// Inicializar documento, como parÃ¡metros indicamos el PdfDocument a utilizar y
+			// el tamaÃ±o de la hoja
 			Document documento = new Document(pdf, PageSize.A5);
-			// Damos márgenes a la hoja
+			// Damos mÃ¡rgenes a la hoja
 			documento.setMargins(25, 25, 25, 25);
 			// Establecemos una fuente para los registros
 			PdfFont fuente = PdfFontFactory.createFont(StandardFonts.HELVETICA);
@@ -60,27 +59,27 @@ public class ImprimirTicket {
 			documento.add(new Paragraph("TICKET " + id).setFont(fuenteNegrita));
 			documento.add(new Paragraph("ALBERCHE 7"));
 			documento.add(new Paragraph("41005 SEVILLA"));
-			documento.add(new Paragraph("TELÉFONO 697152347"));
+			documento.add(new Paragraph("TELÃ‰FONO 697152347"));
 			documento.add(new Paragraph("CAJA: 01"));
 			documento.add(new Paragraph("FECHA: " + fecha).setFont(fuenteNegrita));
 
-			// Conexión a la base de datos
+			// ConexiÃ³n a la base de datos
 			datos.conectar();
-			// Crear array del tipo String y partirlo por cada línea de la cadena devuelta
+			// Crear array del tipo String y partirlo por cada lÃ­nea de la cadena devuelta
 			String[] lineas = datos.obtenerArticulosComprados(id).split("\n");
-			// Extraer la posición 0 del array y establecerla como cabecera de la tabla
-			datos.process(tabla, "DESCRIPCIÓN-CANTIDAD-PRECIO-IMPORTE", fuenteNegrita, true);
+			// Extraer la posiciÃ³n 0 del array y establecerla como cabecera de la tabla
+			datos.process(tabla, "DESCRIPCIÃ“N-CANTIDAD-PRECIO-IMPORTE", fuenteNegrita, true);
 
 			// Rellenamos la tabla
 			for (int i = 0; i < lineas.length; i++) {
 				datos.process(tabla, lineas[i], fuente, false);
 			}
 
-			// Añadimos la tabla al documento
+			// AÃ±adimos la tabla al documento
 			documento.add(tabla);
-			// Añadimos el total
-			documento.add(new Paragraph("TOTAL: " + total + " €").setFont(fuenteNegrita));
-			documento.add(new Paragraph("LE ATENDIÓ: DENIS PEÑA"));
+			// AÃ±adimos el total
+			documento.add(new Paragraph("TOTAL: " + total + " â‚¬").setFont(fuenteNegrita));
+			documento.add(new Paragraph("LE ATENDIÃ“: DENIS PEÃ‘A"));
 			documento.add(new Paragraph("GRACIAS POR SU VISITA"));
 			// Nos desconectamos de la base de datos y cerramos el document
 			datos.desconectar();

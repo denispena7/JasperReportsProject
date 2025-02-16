@@ -1,21 +1,21 @@
 package es.studium.practicaWindowBuilder;
 
 /**
- * Clase principal que inicia la aplicaci髇.
+ * Clase principal que inicia la aplicaci贸n.
  * 
  * Se encarga de crear las instancias del modelo y la vista, y luego inicializa
- * el controlador para gestionar la l骻ica del programa.
+ * el controlador para gestionar la l贸gica del programa.
  * 
- * @author Denis Pe馻
+ * @author Denis Pe帽a
  * @version 1.0
  * @since 2025-02-12
  */
 public class Principal {
 	/**
-	 * M閠odo principal que inicia la aplicaci髇.
+	 * M茅todo principal que inicia la aplicaci贸n.
 	 * 
-	 * @param args Argumentos de l韓ea de comandos (no utilizados en esta
-	 *             aplicaci髇).
+	 * @param args Argumentos de l铆nea de comandos (no utilizados en esta
+	 *             aplicaci贸n).
 	 */
 	public static void main(String[] args) {
 		Modelo modelo = new Modelo();

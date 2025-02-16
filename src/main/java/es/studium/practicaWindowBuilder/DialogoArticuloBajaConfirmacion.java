@@ -9,9 +9,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 /**
- * Esta clase representa la vista que confirma la baja de un artÌculo.
+ * Esta clase representa la vista que confirma la baja de un art√≠culo.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -25,10 +25,10 @@ public class DialogoArticuloBajaConfirmacion extends JDialog {
 	JButton btnNewButton;
 
 	/**
-	 * Constructor vacÌo de la clase
+	 * Constructor vac√≠o de la clase
 	 */
 	public DialogoArticuloBajaConfirmacion() {
-		setTitle("BAJA ARTÕCULOS");
+		setTitle("BAJA ART√çCULOS");
 		setBounds(100, 100, 330, 130);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

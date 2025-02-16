@@ -9,9 +9,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 /**
- * Esta clase representa la vista que confirma el alta de un artículo.
+ * Esta clase representa la vista que confirma el alta de un artÃ­culo.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -25,10 +25,10 @@ public class DialogoArticuloAltaConfirmada extends JDialog {
 	JButton btnOK;
 
 	/**
-	 * Constructor vacío de la clase.
+	 * Constructor vacÃ­o de la clase.
 	 */
 	public DialogoArticuloAltaConfirmada() {
-		setTitle("ALTA ARTÍCULO");
+		setTitle("ALTA ARTï¿½CULO");
 		setBounds(100, 100, 330, 127);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

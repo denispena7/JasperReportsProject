@@ -14,7 +14,7 @@ import java.awt.Font;
  * Esta clase representa la vista que pregunta el rango de fechas para generar
  * el informe de tickets.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -29,7 +29,7 @@ public class RangoFechasInformeTickets extends JDialog {
 	JButton btnGenerarInforme;
 
 	/**
-	 * Constructor vacío de la clase.
+	 * Constructor vacÃ­o de la clase.
 	 */
 	public RangoFechasInformeTickets() {
 		setTitle("Consulta Tickets");

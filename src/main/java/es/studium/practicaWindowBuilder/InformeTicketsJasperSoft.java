@@ -17,17 +17,16 @@ import net.sf.jasperreports.engine.util.JRLoader;
  * Esta clase se ocupa de generar informe con JasperReports de los tickets
  * registrados.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
 public class InformeTicketsJasperSoft {
 	/**
-	 * Constructor por parámetros de la clase.
+	 * Constructor por parÃ¡metros de la clase.
 	 * 
 	 * @param fDesde Fecha a partir de la cual obtener los tickets.
 	 * @param fHasta Fecha hasta la cual obtener los tickets.
-	 * @throws Exception Si algo malo ocurre.
 	 */
 	public InformeTicketsJasperSoft(String fDesde, String fHasta) {
 		try {
@@ -35,9 +34,9 @@ public class InformeTicketsJasperSoft {
 			JasperCompileManager.compileReportToFile("./src/main/resources/InformeTickets.jrxml");
 			System.out.println("Fichero InformeTickets.jasper generado CORRECTAMENTE!");
 
-			// Objeto para guardar parámetros necesarios para el informe.
-			// Como ejemplo usamos dos parámetros autor y titulo
-			// Dándole valores fijos a los parámetros del informe.
+			// Objeto para guardar parÃ¡metros necesarios para el informe.
+			// Como ejemplo usamos dos parÃ¡metros autor y titulo
+			// DÃ¡ndole valores fijos a los parÃ¡metros del informe.
 			HashMap<String, Object> parametros = new HashMap<String, Object>();
 			parametros.put("fechaDesde", fDesde);
 			parametros.put("fechaHasta", fHasta);
@@ -46,7 +45,7 @@ public class InformeTicketsJasperSoft {
 			JasperReport report = (JasperReport) JRLoader
 					.loadObjectFromFile("./src/main/resources/InformeTickets.jasper");
 
-			// Conectar a la base de datos para sacar la información
+			// Conectar a la base de datos para sacar la informaciÃ³n
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String servidor = "jdbc:mysql://localhost:3306/tiendecitaDPM";
 			String usuarioDB = "root";

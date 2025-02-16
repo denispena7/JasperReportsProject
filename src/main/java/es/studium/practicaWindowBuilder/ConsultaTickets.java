@@ -74,7 +74,7 @@ public class ConsultaTickets extends JFrame {
 		lblCp.setBounds(10, 46, 120, 24);
 		pnlInformacion.add(lblCp);
 
-		lblTelefono = new JLabel("TELÉFONO: 697152347");
+		lblTelefono = new JLabel("TELEFONO: 697152347");
 		lblTelefono.setForeground(new Color(0, 64, 128));
 		lblTelefono.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblTelefono.setBounds(10, 81, 179, 23);
@@ -137,7 +137,7 @@ public class ConsultaTickets extends JFrame {
 		sep2.setBounds(20, 397, 393, 2);
 		pnlTicket.add(sep2);
 
-		lblCajero = new JLabel("LE ATENDIÓ: DENIS PEÑA");
+		lblCajero = new JLabel("LE ATENDIÓ: DENIS PEÑA");
 		lblCajero.setForeground(new Color(0, 64, 128));
 		lblCajero.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblCajero.setBounds(20, 415, 193, 29);

@@ -59,8 +59,6 @@ public class Modelo {
 	 * 
 	 * @return Devuelve true si la conexión se ha realizado con éxito, false en caso
 	 *         contrario.
-	 * @throws ClassNotFoundException si no se puede cargar el driver.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean conectar() {
 		boolean conexionCorrecta = true;
@@ -85,7 +83,6 @@ public class Modelo {
 	/**
 	 * Método para cerrar la conexión con la base de datos.
 	 * 
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public void desconectar() {
 		try {
@@ -125,7 +122,6 @@ public class Modelo {
 	 * 
 	 * @param fecha Fecha que será validada.
 	 * @return Devuelve true si la fecha es correcta, false en caso contrario.
-	 * @throws ParseException Si la fecha no tiene el formato correcto.
 	 */
 	public boolean validarFecha(String fecha) {
 		try {
@@ -144,7 +140,6 @@ public class Modelo {
 	 * info).
 	 * 
 	 * @param tablaArticulos La tabla a rellenar en la vista.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public void rellenarTablaArticulos(JTable tablaArticulos) {
 		String sentencia = "SELECT * FROM articulos;";
@@ -175,7 +170,6 @@ public class Modelo {
 	 * 
 	 * @param tablaDetallesTicket La tabla a rellenar en la vista.
 	 * @param idTicketFK Id del ticket del que se quiere generar la consulta.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public void rellenarTablaTickets(JTable tablaDetallesTicket, int idTicketFK) {
 		String sentencia = "SELECT descripcionArticulo, precioArticulo, cantidadArticulo "
@@ -215,7 +209,6 @@ public class Modelo {
 	 * 
 	 * @param idTicketFK Id de la compra que se quiere calcular el total.
 	 * @return Importe total correspondiente al ticket.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public String calcularTotalCompra(int idTicketFK) {
 		Double resultado = 0.0;
@@ -251,7 +244,6 @@ public class Modelo {
 	 * @param precio Precio del artículo.
 	 * @param stock  Cantidad del artículo.
 	 * @return True si el alta se realizó correctamente, false en caso contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean darAltaArticulo(String desc, float precio, int stock) {
 		boolean altaCorrecta = true;
@@ -276,7 +268,6 @@ public class Modelo {
 	 * @param precio Nuevo precio del artículo.
 	 * @param stock  Nuevo stock del artículo.
 	 * @return True si la actualización fue realizada correctamente.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean actualizarArticulo(int id, String desc, float precio, int stock) {
 		boolean actualizacionCorrecta = true;
@@ -300,7 +291,6 @@ public class Modelo {
 	 * @param id Id del artículo a dar de baja.
 	 * @return True si la baja se ha realizado correctamente, false en caso
 	 *         contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean bajaArticulo(int id) {
 		boolean bajaCorrecta = true;
@@ -322,7 +312,6 @@ public class Modelo {
 	 * 
 	 * @param descripcion Nombre del artículo a buscar.
 	 * @return True si la búsqueda ha devuelto algo, false en caso contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean comprobarExistencia(String descripcion) {
 		String sentencia = "SELECT * FROM articulos WHERE descripcionArticulo = '" + descripcion + "';";
@@ -346,7 +335,6 @@ public class Modelo {
 	 * Función que rellena desplegables con artículos
 	 * 
 	 * @return Lista de artículos.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public String[] rellenarListaArticulos() {
 		String elementos = "Elige un artículo...*";
@@ -370,7 +358,6 @@ public class Modelo {
 	 * Función que rellena desplegables con tickets.
 	 * 
 	 * @return Lista de tickets.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public String[] rellenarListaTickets() {
 		String elementos = "Elige un ticket...*";
@@ -395,7 +382,6 @@ public class Modelo {
 	 * 
 	 * @param descripcion Nombre del artículo a buscar.
 	 * @return Precio del artículo.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public float encontrarPrecio(String descripcion) {
 		float precio = 0.0f;
@@ -422,7 +408,6 @@ public class Modelo {
 	 * 
 	 * @return True si el alta del ticket se ha realizado correctamente, false en
 	 *         caso contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean darAltaTicket() {
 		boolean altaCorrecta = true;
@@ -451,7 +436,6 @@ public class Modelo {
 	 * @param cantidad   Cantidad del artículo.
 	 * @return True si el alta ha sido realizada correctamente, false en caso
 	 *         contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean darAltaDetallesTicket(int idTicket, int idArticulo, int cantidad) {
 		boolean altaCorrecta = true;
@@ -494,7 +478,6 @@ public class Modelo {
 	 * @param idArticulo Id del artículo.
 	 * @return True si el ticket ya ha registrado determinado artículo, false en
 	 *         caso contrario.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public boolean comprobarArticuloComprado(int idTicket, int idArticulo) {
 		boolean siExiste = false;
@@ -520,7 +503,6 @@ public class Modelo {
 	 * Función que devuelve el último ticket creado.
 	 * 
 	 * @return Último ticket creado.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public int idTicket() {
 		int idTicket = 0;
@@ -547,7 +529,6 @@ public class Modelo {
 	 * 
 	 * @param articulo Nombre del artículo.
 	 * @return Id del artículo.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public int idArticuloFK(String articulo) {
 		int id = 0;
@@ -574,7 +555,6 @@ public class Modelo {
 	 * 
 	 * @param idTicket Id del ticket.
 	 * @return Fecha del ticket.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public String obtenerFechaTicket(int idTicket) {
 		String fecha = "";
@@ -599,7 +579,6 @@ public class Modelo {
 	 * 
 	 * @param idTicket Id del ticket.
 	 * @return Lista de artículos del ticket.
-	 * @throws SQLException Si ocurre un error de base de datos.
 	 */
 	public String obtenerArticulosComprados(int idTicket) {
 		String datos = "";

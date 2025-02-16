@@ -10,9 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 /**
- * Esta clase representa la vista del menú CRUD de los tickets.
+ * Esta clase representa la vista del menÃº CRUD de los tickets.
  * 
- * @author Denis Peña
+ * @author Denis PeÃ±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -37,7 +37,7 @@ public class MenuCrudTickets extends JFrame {
 	Modelo datos = new Modelo();
 
 	/**
-	 * Constructor vacío de la clase.
+	 * Constructor vacÃ­o de la clase.
 	 */
 	public MenuCrudTickets() {
 		setTitle("TICKETS");

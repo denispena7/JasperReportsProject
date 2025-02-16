@@ -22,9 +22,9 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
 /**
- * Esta clase representa la vista del CRUD de los artÌculos.
+ * Esta clase representa la vista del CRUD de los art√≠culos.
  * 
- * @author Denis PeÒa
+ * @author Denis Pe√±a
  * @version 1.0
  * @since 2025-02-12
  */
@@ -59,10 +59,10 @@ public class CrudArticulos extends JFrame {
 	Modelo datos = new Modelo();
 
 	/**
-	 * Constructor vacÌo de la clase.
+	 * Constructor vac√≠o de la clase.
 	 */
 	public CrudArticulos() {
-		setTitle("CRUD ARTÕCULOS");
+		setTitle("CRUD ART√çCULOS");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 449, 640);
 		setLocationRelativeTo(null);
@@ -82,7 +82,7 @@ public class CrudArticulos extends JFrame {
 		contentPane.add(pnlFormulario);
 		pnlFormulario.setLayout(null);
 
-		lblDescripcion = new JLabel("DESCRIPCI”N");
+		lblDescripcion = new JLabel("DESCRIPCI√ìN");
 		lblDescripcion.setForeground(new Color(0, 64, 128));
 		lblDescripcion.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblDescripcion.setBounds(23, 36, 124, 28);
@@ -190,8 +190,8 @@ public class CrudArticulos extends JFrame {
 	}
 
 	/**
-	 * MÈtodo que ajusta el ancho de las columnas de la tabla que muestra la
-	 * consulta de los artÌculos registrados.
+	 * M√©todo que ajusta el ancho de las columnas de la tabla que muestra la
+	 * consulta de los art√≠culos registrados.
 	 * 
 	 * @param tabla Tabla a ajustar
 	 */
@@ -200,9 +200,9 @@ public class CrudArticulos extends JFrame {
 		TableColumnModel columnModel = tabla.getColumnModel();
 
 		for (int col = 0; col < tabla.getColumnCount(); col++) {
-			int maxWidth = 0; // Ancho m·ximo para la columna
+			int maxWidth = 0; // Ancho m√°ximo para la columna
 
-			// Iterar sobre todas las filas para encontrar la m·s ancha
+			// Iterar sobre todas las filas para encontrar la m√°s ancha
 			for (int row = 0; row < tabla.getRowCount(); row++) {
 				TableCellRenderer renderer = tabla.getCellRenderer(row, col);
 				Component comp = tabla.prepareRenderer(renderer, row, col);
@@ -221,7 +221,7 @@ public class CrudArticulos extends JFrame {
 	}
 
 	/**
-	 * MÈtodo que centra el contenido de las celdas de la tabla.
+	 * M√©todo que centra el contenido de las celdas de la tabla.
 	 * 
 	 * @param tabla Tabla a formatear.
 	 */
@@ -237,7 +237,7 @@ public class CrudArticulos extends JFrame {
 	}
 
 	/**
-	 * MÈtodo que borra el contenido de los campos de texto del CRUD de artÌculos.
+	 * M√©todo que borra el contenido de los campos de texto del CRUD de art√≠culos.
 	 */
 	public void limpiar() {
 		txtDescripcion.setText("");
